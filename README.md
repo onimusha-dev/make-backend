@@ -2,6 +2,8 @@
 
 This repository contains the `make-backend` CLI and its documentation website.
 
+GitHub: [onimusha-dev/make-backend](https://github.com/onimusha-dev/make-backend)
+
 ## Structure
 
 - `package/`: The core `make-backend` CLI package (published to npm).

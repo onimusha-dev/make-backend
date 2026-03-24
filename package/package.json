@@ -31,11 +31,11 @@
     "author": "musha",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/onimusha-dev/create-backend.git"
+        "url": "git+https://github.com/onimusha-dev/make-backend.git"
     },
-    "homepage": "https://github.com/onimusha-dev/create-backend#readme",
+    "homepage": "https://github.com/onimusha-dev/make-backend#readme",
     "bugs": {
-        "url": "https://github.com/onimusha-dev/create-backend/issues"
+        "url": "https://github.com/onimusha-dev/make-backend/issues"
     },
     "engines": {
         "node": ">=18.0.0"
