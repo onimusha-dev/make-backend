@@ -7,6 +7,8 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { logger } from 'hono/logger';
+import { secureHeaders } from 'hono/secure-headers';
+import { compress } from 'hono/compress';
 import routes from './routes/index.js';
 import { ApiError } from './utils/apiResponse.js';
 import { HTTP_STATUS } from './constants/httpStatus.js';
@@ -16,6 +18,8 @@ const app = new Hono();
 // Global Middleware
 app.use('*', logger());
 app.use('*', cors());
+app.use('*', secureHeaders());
+app.use('*', compress());
 
 // API Routes
 app.route('/api', routes);

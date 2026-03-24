@@ -71,8 +71,6 @@ export async function getUserInputs() {
             { value: "bcrypt", label: "bcrypt", hint: "Password hashing" },
             { value: "jsonwebtoken", label: "jsonwebtoken", hint: "JWT authentication" },
             { value: "zod", label: "zod", hint: "Schema validation" },
-            { value: "morgan", label: "morgan", hint: "HTTP request logger" },
-            { value: "helmet", label: "helmet", hint: "Security headers" },
             { value: "nodemailer", label: "nodemailer", hint: "Email sending" },
         ],
         required: false,

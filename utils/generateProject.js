@@ -118,6 +118,23 @@ function updateEnvTypes(projectPath, database) {
 }
 
 /**
+ * Inject Zod-based environment validation into the entry point.
+ */
+function injectZodValidation(indexPath, ext) {
+    if (!fs.existsSync(indexPath)) return;
+
+    let content = fs.readFileSync(indexPath, "utf-8");
+    const isTS = ext === "ts";
+
+    const validationCode = isTS 
+        ? `import { z } from 'zod';\n\nconst envSchema = z.object({\n    PORT: z.string().default('3000'),\n    NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),\n});\n\nconst env = envSchema.parse(process.env);\n\n`
+        : `import { z } from 'zod';\n\nconst envSchema = z.object({\n    PORT: z.string().default('3000'),\n    NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),\n});\n\nenvSchema.parse(process.env);\n\n`;
+
+    content = validationCode + content;
+    fs.writeFileSync(indexPath, content);
+}
+
+/**
  * Main project generation function.
  * 1. Copy framework template (express-js, hono-ts, etc.)
  * 2. Overlay DB template (db-mongodb-js, db-pg-ts, etc.)
@@ -179,6 +196,11 @@ export async function generateProject(projectPath, responses) {
             pkgJson.dependencies[pkg] = "latest";
         }
         fs.writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2));
+
+        // 8.1 If zod is selected, inject schema validation into the entry point
+        if (packages.includes("zod")) {
+            injectZodValidation(path.join(projectPath, "src", `index.${ext}`), ext);
+        }
     }
 
     // 9. Copy .env.example as .env for convenience

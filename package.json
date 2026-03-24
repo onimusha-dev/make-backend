@@ -1,6 +1,6 @@
 {
   "name": "make-backend",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "description": "Production-ready CLI for scaffolding robust Express and Hono backend projects with integrated database support.",
   "main": "bin/index.js",

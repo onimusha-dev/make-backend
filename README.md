@@ -48,12 +48,12 @@ No more copy-pasting boilerplate. Just run one command and start building.
 | **Frameworks** | [Express](https://expressjs.com/) or [Hono](https://hono.dev/) |
 | **Languages** | JavaScript (ESM) or [TypeScript](https://www.typescriptlang.org/) |
 | **Databases** | [MongoDB](https://www.mongodb.com/) via [Mongoose](https://mongoosejs.com/) or [PostgreSQL](https://www.postgresql.org/) via [node-postgres](https://node-postgres.com/) |
-| **Security** | Optional [bcrypt](https://www.npmjs.com/package/bcrypt), [Helmet](https://helmetjs.github.io/), [JWT](https://www.npmjs.com/package/jsonwebtoken) |
-| **Validation** | Optional [Zod](https://zod.dev/) schema validation |
-| **Logging** | Optional [Morgan](https://www.npmjs.com/package/morgan) HTTP logger |
-| **Email** | Optional [Nodemailer](https://nodemailer.com/) integration |
+| **Security** | Built-in [Helmet](https://helmetjs.github.io/), [Compression](https://www.npmjs.com/package/compression), and optional [bcrypt](https://www.npmjs.com/package/bcrypt) |
+| **Testing** | Built-in [Vitest](https://vitest.dev/) suite with sample health-check tests |
+| **Linting** | Modern ESLint (flat config) + Prettier + EditorConfig |
+| **Validation** | Optional [Zod](https://zod.dev/) with **automatic environment validation** |
+| **Logging** | Built-in [Morgan](https://www.npmjs.com/package/morgan) HTTP logger |
 | **Package Managers** | [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/), [yarn](https://yarnpkg.com/), [bun](https://bun.sh/) |
-| **Preference Caching** | Remembers your last selections across runs |
 | **Git** | Automatic `git init` on project creation |
 
 ---
@@ -176,11 +176,13 @@ Every generated project ships with:
 
 - **Standardized API responses** via `ApiResponse` and `ApiError` classes
 - **Global error handling** middleware with dev-only stack traces
-- **HTTP status constants** to eliminate magic numbers
-- **CORS** enabled by default
-- **Environment variables** via [dotenv](https://www.npmjs.com/package/dotenv) with `.env.example` template
+- **Security by default** via [Helmet](https://helmetjs.github.io/) and [Compression](https://www.npmjs.com/package/compression)
+- **Automatic logging** via [Morgan](https://www.npmjs.com/package/morgan)
+- **Testing suite** pre-configured with [Vitest](https://vitest.dev/) and Supertest
+- **Linting & Formatting** via modern [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/)
+- **Environment variables** via [dotenv](https://www.npmjs.com/package/dotenv) with `.env.example`
 - **Health check endpoint** at `GET /api/health`
-- **Root endpoint** at `GET /api` returning version and environment info
+- **Developer Experience** via [tsx](https://www.npmjs.com/package/tsx) or native `--watch`
 
 ---
 
@@ -193,8 +195,6 @@ During setup, you can select any combination of these packages:
 | `bcrypt` | Password hashing | [npmjs.com/package/bcrypt](https://www.npmjs.com/package/bcrypt) |
 | `jsonwebtoken` | JWT-based authentication | [npmjs.com/package/jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) |
 | `zod` | Schema validation | [zod.dev](https://zod.dev/) |
-| `morgan` | HTTP request logging | [npmjs.com/package/morgan](https://www.npmjs.com/package/morgan) |
-| `helmet` | Security HTTP headers | [helmetjs.github.io](https://helmetjs.github.io/) |
 | `nodemailer` | Email sending | [nodemailer.com](https://nodemailer.com/) |
 
 ---
