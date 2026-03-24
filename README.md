@@ -12,6 +12,7 @@
   <a href="https://www.npmjs.com/package/make-backend"><img src="https://img.shields.io/npm/dm/make-backend?style=flat-square" alt="npm downloads" /></a>
   <a href="https://github.com/onimusha-dev/make-backend/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/make-backend?style=flat-square" alt="license" /></a>
   <a href="https://nodejs.org"><img src="https://img.shields.io/node/v/make-backend?style=flat-square&color=339933" alt="node version" /></a>
+  <a href="#overview"><img src="https://img.shields.io/badge/docs-website-blue?style=flat-square" alt="documentation" /></a>
 </p>
 
 ---
