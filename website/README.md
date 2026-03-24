@@ -23,9 +23,11 @@ The site will be available at `http://localhost:3000`.
 The website is ready to be deployed to **Vercel** or **GitHub Pages**.
 
 ### Vercel (Recommended)
+
 1. Push this repository to GitHub.
 2. Link the repository to a new project on [Vercel](https://vercel.com).
 3. Select the `website` directory as the root for the deployment.
 
 ---
-*Built with passion by onimusha-dev.*
+
+_Built with passion by onimusha-dev._

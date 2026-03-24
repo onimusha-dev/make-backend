@@ -1,49 +1,23 @@
 {
-  "name": "make-backend",
-  "version": "1.1.0",
-  "type": "module",
-  "description": "Production-ready CLI for scaffolding robust Express and Hono backend projects with integrated database support.",
-  "main": "bin/index.js",
-  "bin": {
-    "make-backend": "bin/index.js"
-  },
-  "files": [
-    "bin",
-    "templates",
-    "utils",
-    "README.md",
-    "LICENSE"
-  ],
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "cli",
-    "scaffold",
-    "backend",
-    "express",
-    "hono",
-    "typescript",
-    "mongodb",
-    "postgresql",
-    "generator"
-  ],
-  "author": "musha",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/onimusha-dev/create-backend.git"
-  },
-  "homepage": "https://github.com/onimusha-dev/create-backend#readme",
-  "bugs": {
-    "url": "https://github.com/onimusha-dev/create-backend/issues"
-  },
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "license": "ISC",
-  "dependencies": {
-    "@clack/prompts": "^1.0.1",
-    "chalk": "^5.6.2",
-    "execa": "^9.6.1"
-  }
+    "name": "create-backend-monorepo",
+    "private": true,
+    "description": "Monorepo for make-backend CLI and website",
+    "scripts": {
+        "dev:website": "pnpm --filter website dev",
+        "build:website": "pnpm --filter website build",
+        "test:cli": "pnpm --filter make-backend test",
+        "format": "prettier --write .",
+        "prepare": "husky"
+    },
+    "lint-staged": {
+        "*.{js,ts,tsx,json,md}": "prettier --write"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "devDependencies": {
+        "husky": "^9.1.7",
+        "lint-staged": "^16.4.0",
+        "prettier": "^3.8.1"
+    }
 }
